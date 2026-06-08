@@ -28,24 +28,4 @@ router.post('/filter', function(req, res) {
   res.json({ result });
 });
 
-// ── VULNERABILITY: innerHTML with user data ───────────────────────────────────
-// Risk: DOM-based XSS — attacker injects HTML/script via URL fragment
-// Fix:  Use textContent instead of innerHTML for user-supplied data
-router.get('/display', function(req, res) {
-  const userInput = req.query.data;
-
-  const html = `
-    <html>
-      <body>
-        <div id="output"></div>
-        <script>
-          // UNSAFE — directly setting innerHTML with URL parameter
-          document.getElementById('output').innerHTML = '${userInput}';
-        </script>
-      </body>
-    </html>`;
-
-  res.send(html);
-});
-
 module.exports = router;
