@@ -1,0 +1,15 @@
+{
+  "name": "sast-juice-shop-mini",
+  "version": "1.0.0",
+  "description": "Intentionally vulnerable demo target for SAST Pipeline Demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": ["demo", "security", "sast", "vulnerable"],
+  "author": "patyalav",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
