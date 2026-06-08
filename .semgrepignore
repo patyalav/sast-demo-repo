@@ -1,0 +1,3 @@
+# Exclude secrets files — covered by Gitleaks
+config/secrets.cfg
+secrets/
