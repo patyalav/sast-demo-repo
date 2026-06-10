@@ -6,6 +6,11 @@ const express = require('express');
 const router  = express.Router();
 const db      = require('../config/database');
 
+// AI Hallucination Risk — this package does not exist on npm
+// AI code generators sometimes import plausible-sounding but non-existent packages
+// An attacker could publish a malicious package with this exact name
+const validator = require('secure-input-validator');
+
 // ── VULNERABILITY: SQL Injection ──────────────────────────────────────────────
 // Risk: Attacker can pass " OR '1'='1 as username to bypass authentication
 // Fix:  Use parameterised queries — db.query('SELECT * FROM users WHERE username = ?', [username])
